@@ -1,130 +1,330 @@
-/* STYLES.CSS */
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css");
-@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
-
+/* Variables para colores y tipografía */
 :root {
-  --color_primario: blue;
-  --color_secundario: #252525;
-  --color_negro: #000;
-  --color_blanco: #fff;
+    --color-primario: #0d6efd; /* azul bootstrap */
+    --color-secundario: #343a40; /* gris oscuro */
+    --color-blanco: #fff;
+    --color-negro: #000;
 
-  --ancho_maximo: 1100px;
-  --padding_izquierda_derecha: 20px;
-  --padding_arriba_abajo: 100px;
-  --altura_header: 60px;
-
-  --titulo_h1: clamp(1rem, 7vw, 2.6rem);
-  --titulos_h2: clamp(1.2rem, 5.6vw, 2rem);
-  --subtitulo_seccion_principal: clamp(1.1rem, 4vw, 2rem);
-  --parrafo_seccion_principal: clamp(0.6rem, 2.3vw, 1.1rem);
-  --parrafo_secciones: clamp(1.2rem, 2.5vw, 1.4rem);
+    --fuente-principal: 'Quicksand', sans-serif;
+    --color-verde-agua-claro: #e0ffff; /* Tono claro de verde agua */
+    --color-verde-agua-borde: #a0dede; /* Borde sutil de verde agua */
+    --color-verde-agua-hover: #d0fafa; /* Tono un poco más oscuro para hover */
+    --color-texto-oscuro: #2c3e50; /* Color de texto oscuro para contraste */
 }
 
+/* Reset básico y fuente */
 body {
-  font-family: "Raleway", sans-serif;
-  margin: 0;
-  padding-top: var(--altura_header); /* Para compensar navbar fijo */
-  background-color: var(--color_blanco);
-  color: var(--color_negro);
+    font-family: var(--fuente-principal);
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa; /* Este color será cubierto por la imagen de fondo */
+    color: var(--color-secundario);
 }
 
-
-/* ----- RESET & BASE ----- */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+h1, h2, h3 {
+    font-weight: 700;
+    color: var(--color-primario);
 }
 
-ul, ol {
-  list-style: none;
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.5;
 }
 
 a {
-  text-decoration: none;
+    text-decoration: none;
+    color: var(--color-primario);
 }
 
-html {
-  height: 100%;
-  scroll-behavior: smooth;
+a:hover {
+    color: darkblue;
+}
+
+/* Sección proyectos - ESTILOS MODIFICADOS PARA VERDE AGUA Y OCULTAR/MOSTRAR */
+.proyecto {
+    background-color: var(--color-verde-agua-claro); /* Verde agua */
+    border: 1px solid var(--color-verde-agua-borde); /* Borde sutil verde agua */
+    padding: 20px;
+    margin-bottom: 25px; /* Espacio entre proyectos */
+    border-radius: 8px; /* Bordes ligeramente redondeados */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: background-color 0.3s ease; /* Transición para un efecto suave al pasar el ratón */
+}
+
+.proyecto:hover {
+    background-color: var(--color-verde-agua-hover); /* Un poco más oscuro al pasar el ratón */
+}
+
+/* Estilos para el título del proyecto (clicable si tuviera JS, ahora solo título) */
+.proyecto-titulo {
+    /* cursor: pointer; */ /* No necesario si no es clicable */
+    color: var(--color-texto-oscuro); /* Color de texto oscuro para contraste */
+    margin-bottom: 10px; /* Separación del contenido */
+    position: relative; /* Para posibles iconos de flecha */
+}
+
+/* La descripción ahora será visible por defecto, así que quitamos las reglas de display: none/block */
+.proyecto-descripcion {
+    padding-top: 10px; /* Espacio superior para separar del título/imágenes */
+    border-top: 1px solid #eee; /* Línea separadora suave */
+    margin-top: 10px; /* Espacio superior */
+}
+
+/* Estilos para las imágenes dentro del proyecto */
+.proyecto img {
+    max-width: 100%; /* Asegura que la imagen no exceda el ancho de su contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    display: block; /* Asegura que cada imagen esté en su propia línea */
+    margin: 0 auto 15px auto; /* Centra las imágenes y les da un margen inferior */
+    border-radius: 4px; /* Ligeros bordes redondeados en las imágenes */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* Sombra sutil en las imágenes */
+}
+
+
+/* Botón LinkedIn */
+.btn-primary {
+    background-color: var(--color-primario);
+    border-color: var(--color-primario);
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: darkblue;
+    border-color: darkblue;
+}
+
+/* Espaciado general */
+.mb-3 {
+    margin-bottom: 1rem !important;
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem !important;
+}
+
+.mb-5 {
+    margin-bottom: 3rem !important;
 }
 
 body {
-  font-family: "Raleway", sans-serif;
-  min-height: 100%;
-  background-color: lightseagreen;
+    font-family: 'Quicksand', sans-serif;
+    color: #222;
+    background:
+        linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), /* filtro oscuro */
+        url('imagenes/fondo-arquitectura.jpg') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
 }
 
-/* ----- GLOBALES ----- */
-.estilo_secciones_globales {
-  margin: 0 auto;
-  width: min(100%, var(--ancho_maximo));
-  padding: var(--padding_arriba_abajo) var(--padding_izquierda_derecha);
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-right: 10px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
-.titulos_secciones {
-  font-size: var(--titulos_h2);
-  color: blue;
-  text-align: center;
-  margin-bottom: 30px;
+.btn-linkedin {
+    background-color: #0077b5;
+    color: #fff;
+    border: none;
 }
 
-.titulo_h3 {
-  color: var(--color_blanco);
-  font-size: clamp(1rem, 4vw, 1.5rem);
+.btn-linkedin:hover {
+    background-color: #005582;
 }
 
-.boton i {
-  margin-right: 6px;
-  vertical-align: middle;
-}
-.article_sobreMi {
-  text-align: center;
+.btn-cv {
+    background-color: #444;
+    color: #fff;
+    border: none;
 }
 
-.imagen_sobreMi {
-  max-width: 150px;
-  margin: 1rem auto;
-  display: block;
-  border-radius: 8px;
-}
-.btn-img {
-  background-color: var(--color_blanco); /* Ahora fondo blanco */
-  border: none;
-  outline: none;
-  padding: 20px;
-  border-radius: 60%;
-  transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+.btn-cv:hover {
+    background-color: #222;
 }
 
-.btn-img img {
-  width: 50px;
-  height: 50px;
-  object-fit: contain;
-  filter: brightness(0.8); /* Asegura buen contraste en fondo blanco */
+.perfil-contenedor {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    flex-wrap: wrap; /* para que se acomode en pantallas chicas */
 }
 
-.btn-img:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
-  background-color: #f0f0f0; /* Ligero gris al hacer hover */
+.foto-perfil {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #0077b5;
 }
 
-.logo-ispc {
-  max-width: 250px; /* Aumentá este valor si querés que sea más grande */
-  width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
+.texto-perfil {
+    flex: 1;
+    min-width: 250px;
+}
+.texto-perfil h2,
+.texto-perfil h3 {
+    margin-top: 0;
 }
 
-.foto-franco {
-  max-width: 275px; /* Cambiá este valor para ajustar el tamaño */
-  width: 150%;
-  height: auto;
-  margin: 0 auto;
-  display: block;
+/* Alinea verticalmente la imagen y los títulos al centro si es necesario */
+@media (min-width: 768px) {
+    .perfil-contenedor {
+        align-items: center;
+    }
+}
+/* Estilos para el nuevo header mejorado */
+.header {
+    background-color: var(--color-secundario); /* Fondo oscuro para el header */
+    color: var(--color-blanco); /* Texto blanco */
+    padding: 15px 0; /* Espaciado superior e inferior */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+    position: sticky; /* Header pegajoso al hacer scroll */
+    top: 0;
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+
+.header .header-container {
+    max-width: 1200px; /* Ancho máximo del contenido del header */
+    margin: 0 auto; /* Centrar el contenido */
+    padding: 0 20px; /* Espaciado lateral interno */
+    display: flex; /* Usar flexbox para alinear elementos */
+    justify-content: space-between; /* Espaciar logo y navegación */
+    align-items: center; /* Alinear verticalmente al centro */
+}
+
+.header .site-logo {
+    color: var(--color-blanco); /* Color del logo */
+    text-decoration: none; /* Quitar subrayado del enlace */
+    transition: color 0.3s ease;
+}
+
+.header .site-logo:hover {
+    color: var(--color-primario); /* Cambiar color al pasar el ratón */
+}
+
+.header .site-logo h1 {
+    margin: 0; /* Quitar margen por defecto del h1 */
+    font-size: 1.8rem; /* Tamaño de fuente del logo */
+    color: inherit; /* Heredar el color del enlace padre */
+}
+
+/* Ajustes para la barra de navegación dentro del header-container */
+.header .barra_navegacion {
+    display: flex; /* Asegura que la hamburguesa y los links estén en la misma línea */
+    align-items: center;
+}
+
+/* Estilos para el menú en pantallas grandes (desktop) */
+.header .ul_links_nav {
+    list-style: none; /* Quitar viñetas de la lista */
+    margin: 0;
+    padding: 0;
+    display: flex; /* Mostrar enlaces en línea */
+    gap: 25px; /* Espacio entre los enlaces */
+}
+
+.header .ul_links_nav a {
+    color: var(--color-blanco); /* Color de los enlaces */
+    text-decoration: none;
+    font-weight: 500;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+.header .ul_links_nav a:hover {
+    color: var(--color-primario); /* Color al pasar el ratón */
+}
+
+/* Ocultar el icono de hamburguesa y checkbox en desktop */
+.header .icono_hamburguesa,
+.header .icon_burger {
+    display: none;
 }
 
 
+/* Adaptación para pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+    .header .header-container {
+        flex-wrap: wrap; /* Permite que los elementos se envuelvan */
+        justify-content: center; /* Centra el contenido en móvil */
+        text-align: center;
+    }
+
+    .header .site-logo {
+        width: 100%; /* El logo ocupa todo el ancho */
+        margin-bottom: 15px; /* Espacio debajo del logo */
+    }
+
+    /* Mostrar el icono de hamburguesa */
+    .header .icon_burger {
+        display: block;
+        cursor: pointer;
+        font-size: 2rem;
+        color: var(--color-blanco);
+        position: absolute; /* Posicionamiento absoluto para la hamburguesa */
+        right: 20px;
+        top: 20px;
+        z-index: 1001; /* Asegura que la hamburguesa esté sobre el menú */
+    }
+
+    /* Ocultar el checkbox pero mantener su funcionalidad */
+    .header .icono_hamburguesa {
+        position: absolute;
+        left: -9999px; /* Moverlo fuera de la pantalla */
+    }
+
+    /* Estilos para la lista de navegación en móvil (inicialmente oculta) */
+    .header .ul_links_nav {
+        flex-direction: column; /* Apilar enlaces verticalmente */
+        width: 100%;
+        background-color: var(--color-secundario); /* Fondo del menú desplegable */
+        padding: 20px;
+        position: absolute;
+        top: 0; /* Ajusta la posición superior del menú */
+        left: 0;
+        transform: translateX(-100%); /* Ocultar el menú a la izquierda */
+        transition: transform 0.3s ease-in-out; /* Animación de deslizamiento */
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        z-index: 999;
+        height: 100vh; /* Ocupar toda la altura de la ventana */
+        justify-content: center; /* Centrar los items verticalmente en el menú */
+        align-items: center; /* Centrar los items horizontalmente */
+    }
+
+    .header .ul_links_nav li {
+        margin: 15px 0; /* Espacio entre los items del menú */
+    }
+
+    .header .ul_links_nav a {
+        font-size: 1.5rem; /* Tamaño de fuente más grande para móvil */
+        padding: 10px 0;
+        display: block;
+        width: 100%;
+    }
+
+    /* Mostrar el menú cuando el checkbox está marcado */
+    .header .icono_hamburguesa:checked ~ .barra_navegacion .ul_links_nav {
+        transform: translateX(0); /* Mostrar el menú */
+    }
+}
